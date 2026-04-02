@@ -11,14 +11,14 @@
   <meta property="og:url" content="https://beatifygroup.com" />
   <style>
     :root {
-      --bg: #04070d;
+      --bg: #06060b;
       --panel: rgba(10, 15, 24, 0.78);
       --panel-strong: rgba(12, 18, 28, 0.92);
       --line: rgba(255, 255, 255, 0.16);
       --text: #f4f7ff;
-      --muted: #b7c3d9;
-      --accent: #83f24f;
-      --accent-2: #63d5ff;
+      --muted: #c0bbd2;
+      --accent: #ff4fb5;
+      --accent-2: #ff7a2f;
       --shadow: 0 26px 90px rgba(0, 0, 0, 0.44);
       --max: 1220px;
       --radius: 18px;
@@ -45,11 +45,11 @@
       z-index: -2;
       pointer-events: none;
       background:
-        radial-gradient(1000px 520px at 90% -5%, rgba(99, 213, 255, 0.20), transparent 58%),
-        radial-gradient(1000px 650px at 0% 8%, rgba(131, 242, 79, 0.12), transparent 62%),
+        radial-gradient(1000px 520px at 92% -8%, rgba(255, 79, 181, 0.22), transparent 58%),
+        radial-gradient(1000px 650px at 0% 10%, rgba(255, 122, 47, 0.16), transparent 62%),
         linear-gradient(180deg, rgba(5, 9, 14, 0.72), rgba(5, 9, 14, 0.95)),
         url("assets/network-bg.png") center/cover no-repeat fixed;
-      filter: saturate(1.03);
+      filter: saturate(1.08);
     }
 
     .grain {
@@ -103,7 +103,7 @@
     }
 
     .nav-links a {
-      color: #ced8ea;
+      color: #dad4e8;
       font-size: .9rem;
       padding: .48rem .68rem;
       border-radius: 10px;
@@ -213,7 +213,7 @@
       font-size: .78rem;
       letter-spacing: .12em;
       text-transform: uppercase;
-      color: #a8bbdd;
+      color: #c5b1d5;
     }
 
     h1 {
@@ -256,16 +256,16 @@
 
     .btn.primary {
       border-color: transparent;
-      color: #0d1807;
-      background: linear-gradient(130deg, var(--accent), #bafc94);
-      box-shadow: 0 10px 36px rgba(131, 242, 79, 0.28);
+      color: #1a0a12;
+      background: linear-gradient(130deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 36px rgba(255, 79, 181, 0.32);
     }
 
     section { padding: 3.4rem 0; }
     .section-head { margin-bottom: 1.25rem; }
     .kicker {
       margin: 0 0 .44rem;
-      color: #98abce;
+      color: #bba9d4;
       letter-spacing: .11em;
       text-transform: uppercase;
       font-size: .73rem;
