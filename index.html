@@ -11,14 +11,14 @@
   <meta property="og:url" content="https://beatifygroup.com" />
   <style>
     :root {
-      --bg: #06060b;
-      --panel: rgba(10, 15, 24, 0.78);
-      --panel-strong: rgba(12, 18, 28, 0.92);
-      --line: rgba(255, 255, 255, 0.16);
+      --bg: #141a4a;
+      --panel: rgba(24, 29, 78, 0.78);
+      --panel-strong: rgba(26, 31, 86, 0.92);
+      --line: rgba(219, 224, 255, 0.2);
       --text: #f4f7ff;
-      --muted: #c0bbd2;
-      --accent: #ff4fb5;
-      --accent-2: #ff7a2f;
+      --muted: #d2d1ea;
+      --accent: #ef2ea8;
+      --accent-2: #ff6a86;
       --shadow: 0 26px 90px rgba(0, 0, 0, 0.44);
       --max: 1220px;
       --radius: 18px;
@@ -45,11 +45,11 @@
       z-index: -2;
       pointer-events: none;
       background:
-        radial-gradient(1000px 520px at 92% -8%, rgba(255, 79, 181, 0.22), transparent 58%),
-        radial-gradient(1000px 650px at 0% 10%, rgba(255, 122, 47, 0.16), transparent 62%),
-        linear-gradient(180deg, rgba(5, 9, 14, 0.72), rgba(5, 9, 14, 0.95)),
+        radial-gradient(1000px 520px at 96% -12%, rgba(252, 109, 160, 0.24), transparent 58%),
+        radial-gradient(1200px 740px at -10% 12%, rgba(47, 84, 188, 0.34), transparent 64%),
+        linear-gradient(170deg, rgba(24, 31, 90, 0.82), rgba(67, 43, 103, 0.78)),
         url("assets/network-bg.png") center/cover no-repeat fixed;
-      filter: saturate(1.08);
+      filter: saturate(1.16);
     }
 
     .grain {
@@ -66,9 +66,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(219, 224, 255, 0.14);
       backdrop-filter: blur(14px);
-      background: rgba(6, 10, 16, 0.72);
+      background: rgba(20, 23, 64, 0.74);
     }
 
     .nav {
@@ -103,7 +103,7 @@
     }
 
     .nav-links a {
-      color: #dad4e8;
+      color: #e8e7fb;
       font-size: .9rem;
       padding: .48rem .68rem;
       border-radius: 10px;
@@ -256,16 +256,16 @@
 
     .btn.primary {
       border-color: transparent;
-      color: #1a0a12;
-      background: linear-gradient(130deg, var(--accent), var(--accent-2));
-      box-shadow: 0 10px 36px rgba(255, 79, 181, 0.32);
+      color: #f6efff;
+      background: linear-gradient(130deg, #8b2ba7, var(--accent));
+      box-shadow: 0 10px 36px rgba(239, 46, 168, 0.34);
     }
 
     section { padding: 3.4rem 0; }
     .section-head { margin-bottom: 1.25rem; }
     .kicker {
       margin: 0 0 .44rem;
-      color: #bba9d4;
+      color: #d3c8ea;
       letter-spacing: .11em;
       text-transform: uppercase;
       font-size: .73rem;
@@ -361,7 +361,7 @@
     .strip {
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: linear-gradient(140deg, rgba(255, 79, 181, 0.14), rgba(255, 122, 47, 0.13));
+      background: linear-gradient(140deg, rgba(239, 46, 168, 0.16), rgba(82, 98, 202, 0.18));
       padding: .98rem 1.02rem;
       color: #ebf3ff;
     }
@@ -390,8 +390,8 @@
     @media (max-width: 780px) {
       .wrap { width: min(var(--max), calc(100% - 1.12rem)); }
       header {
-        background: linear-gradient(180deg, rgba(7, 9, 16, 0.95), rgba(7, 9, 16, 0.86));
-        border-bottom-color: rgba(255, 255, 255, 0.13);
+        background: linear-gradient(180deg, rgba(24, 27, 72, 0.96), rgba(24, 27, 72, 0.86));
+        border-bottom-color: rgba(219, 224, 255, 0.16);
       }
       .nav {
         align-items: center;
