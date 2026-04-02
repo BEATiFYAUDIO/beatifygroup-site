@@ -4,590 +4,228 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Beatify Group | Software Company Behind Certifyd</title>
-  <meta name="description" content="Beatify Group is a software company building identity-first creator commerce systems. Certifyd is our flagship product." />
+  <meta name="description" content="Beatify Group builds creator infrastructure software. Certifyd is our flagship product for identity-first creator commerce." />
   <meta property="og:title" content="Beatify Group" />
   <meta property="og:description" content="Software company behind Certifyd." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://beatifygroup.com" />
   <style>
-    :root {
-      --card: #111a2d;
-      --line: rgba(179, 204, 255, 0.16);
-      --text: #edf3ff;
-      --muted: #b9c6df;
-      --brand: #6ee770;
-      --max: 1120px;
-      --radius: 14px;
+    :root{
+      --bg:#06080d;
+      --panel:#0d1119;
+      --panel-2:#0f1522;
+      --line:rgba(255,255,255,.14);
+      --text:#f5f8ff;
+      --muted:#b7c2d8;
+      --green:#89f45e;
+      --green-2:#bafc95;
+      --max:1240px;
+      --radius:18px;
     }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,Segoe UI,system-ui,-apple-system,sans-serif;
+      background:#070a10;
+      color:var(--text);
+      line-height:1.55;
+      text-rendering:optimizeLegibility;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(var(--max),calc(100% - 2rem));margin:0 auto}
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      font-family: "Inter", "Segoe UI", -apple-system, sans-serif;
-      color: var(--text);
-      line-height: 1.55;
+    .site-ambience{
+      position:fixed;inset:0;pointer-events:none;z-index:-1;
       background:
-        linear-gradient(180deg, rgba(4,8,14,.84) 0%, rgba(7,12,20,.88) 100%),
-        radial-gradient(1000px 600px at 12% -8%, rgba(79,183,255,.14), transparent 42%),
-        radial-gradient(880px 560px at 92% 0%, rgba(110,231,112,.10), transparent 44%),
-        url("assets/network-bg.png") center / cover no-repeat fixed,
-        linear-gradient(180deg, #060a12 0%, #080d18 100%);
+        linear-gradient(180deg, rgba(4,7,12,.64), rgba(4,7,12,.86)),
+        radial-gradient(1200px 700px at 10% -6%, rgba(77,180,255,.17), transparent 46%),
+        radial-gradient(900px 600px at 90% 0%, rgba(133,255,92,.13), transparent 50%),
+        url("assets/network-bg.png") center/cover no-repeat fixed,
+        #070a10;
     }
 
-    .site-wide-glare {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      pointer-events: none;
-      overflow: hidden;
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(12px);
+      background:rgba(8,11,18,.68);
+      border-bottom:1px solid rgba(255,255,255,.1);
     }
-    .site-wide-glare::before,
-    .site-wide-glare::after {
-      content: "";
-      position: absolute;
-      width: 58vmax;
-      height: 58vmax;
-      border-radius: 999px;
-      filter: blur(56px);
-      opacity: .24;
-      mix-blend-mode: screen;
-      animation: glareFloat 20s ease-in-out infinite alternate;
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 0}
+    .brand{display:flex;align-items:center;gap:.62rem;font-weight:700;letter-spacing:.01em}
+    .brand img{height:34px;width:auto;display:block}
+    .menu{display:flex;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.9rem}
+
+    .hero{min-height:84vh;display:grid;align-items:end;padding:5.8rem 0 4.4rem}
+    .eyebrow{
+      margin:0 0 1.05rem;
+      font-size:.76rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#a8b9d7;
     }
-    .site-wide-glare::before {
-      top: -24vmax;
-      left: -14vmax;
-      background: radial-gradient(circle at 30% 30%, rgba(79,183,255,.4), rgba(79,183,255,0) 62%);
+    h1{
+      margin:0;
+      font-size:clamp(2.45rem,6.6vw,5.6rem);
+      line-height:1.01;
+      letter-spacing:-.03em;
+      max-width:13ch;
     }
-    .site-wide-glare::after {
-      right: -20vmax;
-      bottom: -22vmax;
-      background: radial-gradient(circle at 65% 45%, rgba(138,92,255,.35), rgba(138,92,255,0) 63%);
-      animation-duration: 26s;
+    .hero-sub{
+      margin:1.1rem 0 0;
+      color:#c9d6ef;
+      font-size:clamp(1.02rem,2.1vw,1.24rem);
+      max-width:66ch;
     }
-    @keyframes glareFloat {
-      0% { transform: translate3d(0,0,0) scale(1); }
-      100% { transform: translate3d(2.4vmax,-1.6vmax,0) scale(1.04); }
+    .cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.55rem}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:46px;padding:.76rem 1rem;border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      font-weight:600;font-size:.93rem;
+    }
+    .btn.primary{
+      border-color:transparent;
+      color:#0b130d;
+      background:linear-gradient(145deg,var(--green),var(--green-2));
     }
 
-    a { color: inherit; text-decoration: none; }
-    .shell { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+    section{padding:3.6rem 0}
+    h2{margin:0 0 .85rem;font-size:clamp(1.45rem,2.9vw,2.5rem);letter-spacing:-.01em}
+    .lede{margin:0 0 1.2rem;color:var(--muted);max-width:70ch}
+    .grid{display:grid;gap:1rem}
+    .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(10px);
-      background: rgba(7, 11, 20, 0.72);
-      border-bottom: 1px solid rgba(179, 204, 255, 0.12);
+    .card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:1.15rem;
+      background:linear-gradient(180deg, rgba(14,19,29,.78), rgba(11,16,25,.9));
+      box-shadow:0 20px 60px rgba(0,0,0,.3);
     }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: .95rem 0;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: .68rem;
-      font-weight: 700;
-      letter-spacing: .01em;
-    }
-    .brand-logo {
-      height: 34px;
-      width: auto;
-      display: block;
-      filter: drop-shadow(0 6px 14px rgba(79,183,255,.22));
-    }
-    .nav-links {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: .93rem;
-      justify-content: flex-end;
-    }
+    .card h3{margin:.05rem 0 .5rem;font-size:1.05rem}
+    .card p{margin:0;color:var(--muted)}
 
-    main { padding-bottom: 2.6rem; }
-    section { padding: 2.4rem 0; }
+    .product-hero{
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      background:rgba(8,12,20,.62);
+      box-shadow:0 26px 90px rgba(0,0,0,.4);
+    }
+    .product-hero img{width:100%;display:block;aspect-ratio:16/8;object-fit:cover}
+    .product-hero .copy{padding:1rem}
 
-    .hero {
-      padding: 5.1rem 0 2.3rem;
-      display: grid;
-      grid-template-columns: 1.16fr .84fr;
-      gap: 1.4rem;
-      align-items: center;
-    }
-    .eyebrow {
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: #9fb2d9;
-      margin-bottom: .85rem;
-    }
-    h1 {
-      margin: 0 0 1rem;
-      font-size: clamp(2rem, 4.8vw, 3.8rem);
-      line-height: 1.05;
-      max-width: 16ch;
-    }
-    .lead {
-      margin: 0;
-      color: var(--muted);
-      max-width: 58ch;
-      font-size: clamp(1rem, 2.1vw, 1.15rem);
+    .gallery{display:grid;gap:.75rem;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:1rem}
+    .shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(8,12,20,.55)}
+    .shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+    .cap{padding:.55rem .65rem;border-top:1px solid rgba(255,255,255,.1);font-size:.84rem;color:#d3def2}
+
+    .statement{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:1.2rem;
+      background:linear-gradient(160deg, rgba(137,244,94,.12), rgba(79,183,255,.1));
     }
 
-    .cta-row {
-      display: flex;
-      gap: .8rem;
-      flex-wrap: wrap;
-      margin-top: 1.45rem;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: .7rem .98rem;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: .92rem;
-      transition: transform .16s ease, filter .16s ease;
-    }
-    .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
-    .btn.primary {
-      border-color: transparent;
-      color: #071018;
-      background: linear-gradient(140deg, var(--brand), #9af07a);
-    }
+    footer{margin-top:2rem;border-top:1px solid rgba(255,255,255,.12);padding:1.2rem 0 2rem;color:var(--muted);font-size:.92rem}
 
-    .hero-card {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(18,27,47,.82), rgba(12,19,34,.86));
-      padding: 1rem;
-      box-shadow: 0 14px 34px rgba(0,0,0,.28);
+    @media (max-width:980px){
+      .g3,.g2,.gallery{grid-template-columns:1fr}
+      .hero{min-height:70vh;padding:4.6rem 0 3.2rem}
     }
-    .hero-card h3 { margin: .1rem 0 .65rem; font-size: 1rem; }
-    .hero-shot {
-      margin-top: .85rem;
-      border: 1px solid rgba(179, 204, 255, 0.18);
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(7, 12, 22, .76);
-    }
-    .hero-shot img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .45rem;
-      margin-top: .6rem;
-    }
-    .pill {
-      border: 1px solid rgba(179, 204, 255, 0.2);
-      border-radius: 999px;
-      background: rgba(10, 16, 30, .5);
-      color: #dbe7ff;
-      padding: .42rem .66rem;
-      font-size: .82rem;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: .92rem;
-    }
-    .section-head h2 { margin: 0; font-size: clamp(1.3rem, 2.3vw, 2rem); }
-    .section-head p { margin: 0; color: var(--muted); max-width: 62ch; }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .85rem;
-    }
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .85rem;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(18,27,47,.8), rgba(13,20,35,.86));
-      padding: 1rem;
-    }
-    .card h3 { margin: .1rem 0 .55rem; font-size: 1.03rem; }
-    .card p { margin: 0; color: var(--muted); font-size: .95rem; }
-
-    .product {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: .85rem;
-      align-items: stretch;
-    }
-
-    .number-list {
-      margin: .65rem 0 0;
-      padding-left: 1.1rem;
-      color: #d8e4ff;
-    }
-    .number-list li { margin: .4rem 0; }
-
-    .link-icons {
-      display: flex;
-      gap: .52rem;
-      flex-wrap: wrap;
-      margin-top: .85rem;
-    }
-    .icon-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      background: rgba(16,24,42,.6);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #d8e5ff;
-      transition: transform .16s ease, border-color .16s ease;
-    }
-    .icon-btn:hover {
-      transform: translateY(-1px);
-      border-color: rgba(110,231,112,.45);
-    }
-    .icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
-
-    .muted-note {
-      font-size: .88rem;
-      color: #aebbd6;
-      margin-top: .6rem;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: .75rem;
-    }
-    .gallery-item {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(10, 17, 31, .64);
-    }
-    .gallery-item img {
-      width: 100%;
-      display: block;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-    }
-    .gallery-item .cap {
-      padding: .55rem .65rem;
-      font-size: .85rem;
-      color: #cfddf8;
-      border-top: 1px solid rgba(179, 204, 255, 0.12);
-    }
-
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .55s ease, transform .55s ease;
-      will-change: transform, opacity;
-    }
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    footer {
-      margin-top: 1.8rem;
-      border-top: 1px solid rgba(179, 204, 255, 0.12);
-      padding: 1.1rem 0 2rem;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    @media (max-width: 980px) {
-      .hero,
-      .grid-3,
-      .grid-2,
-      .product,
-      .gallery { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 700px) {
-      .hero { padding-top: 4.1rem; }
-      .nav { align-items: flex-start; }
-      .nav-links { font-size: .88rem; }
+    @media (max-width:720px){
+      .wrap{width:min(var(--max),calc(100% - 1.15rem))}
+      .nav{align-items:flex-start;padding:.75rem 0}
+      .menu{font-size:.84rem;gap:.55rem}
+      h1{font-size:clamp(2rem,10.8vw,3rem);max-width:none}
+      .hero-sub{font-size:.98rem}
+      .cta{flex-direction:column;align-items:stretch}
+      .btn{width:100%}
+      section{padding:2.45rem 0}
     }
   </style>
 </head>
 <body>
-  <div class="site-wide-glare" aria-hidden="true"></div>
+  <div class="site-ambience" aria-hidden="true"></div>
 
   <header>
-    <div class="shell nav">
-      <a class="brand" href="#top" aria-label="Beatify Group home">
-        <img class="brand-logo" src="assets/logo.png" alt="Beatify Group logo" />
-        <span>Beatify Group</span>
-      </a>
-      <nav class="nav-links" aria-label="Main">
-        <a href="#structure">Structure</a>
-        <a href="#build">What We Build</a>
+    <div class="wrap nav">
+      <a class="brand" href="#top"><img src="assets/logo.png" alt="Beatify Group logo" /><span>Beatify Group</span></a>
+      <nav class="menu" aria-label="Main">
+        <a href="#company">Company</a>
         <a href="#products">Products</a>
         <a href="#system">System</a>
-        <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="hero shell">
+    <section class="hero wrap">
       <div>
-        <div class="eyebrow">Beatify Group · Software Company</div>
-        <h1>We build software systems for creator-owned commerce.</h1>
-        <p class="lead">
-          Beatify Group is the parent company behind Certifyd. We design software that connects identity,
-          publishing, collaboration, and payout operations into one coherent system.
-        </p>
-        <div class="cta-row">
-          <a class="btn primary" href="#products">See Product Portfolio</a>
-          <a class="btn" href="#contact">Contact the Company</a>
-        </div>
-        <div class="link-icons" aria-label="Beatify links">
-          <a class="icon-btn" href="https://github.com/BEATiFYAUDIO" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.09 3.3 9.4 7.87 10.92.58.11.79-.25.79-.56l-.01-2.15c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.71.08-.71 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.56-.29-5.26-1.28-5.26-5.72 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11.02 11.02 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.77.12 3.06.73.8 1.18 1.83 1.18 3.09 0 4.45-2.7 5.42-5.28 5.7.41.35.78 1.05.78 2.12l-.01 3.13c0 .31.21.68.8.56A11.53 11.53 0 0 0 23.5 12.02C23.5 5.66 18.35.5 12 .5Z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://x.com/BeatifyAudio" target="_blank" rel="noopener" aria-label="X">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.78 7.75L23 22h-6.1l-4.77-6.24L6.7 22H3.6l7.25-8.28L1.5 2h6.25l4.3 5.67L18.9 2Zm-1.07 18h1.68L6.83 3.9H5.03L17.83 20Z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://www.facebook.com/beatifyaudio/" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 8.5V6.9c0-.76.25-1.28 1.39-1.28h1.49V3.02c-.26-.03-1.15-.1-2.2-.1-2.18 0-3.68 1.33-3.68 3.77v1.81H8v2.93h2.5V21h3V11.43h2.34l.35-2.93H13.5Z"/></svg>
-          </a>
-          <a class="icon-btn" href="https://www.instagram.com/beat.ify/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5A3.95 3.95 0 0 0 7.75 20.2h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5A3.95 3.95 0 0 0 16.25 3.8h-8.5Zm8.9 1.43a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <aside class="hero-card" aria-label="Company summary">
-        <h3>Beatify Group in brief</h3>
-        <p class="lead" style="font-size:.98rem; max-width:none;">
-          We build systems where creator identity, publishing rights, revenue allocation, and payout execution
-          can be understood end-to-end.
-        </p>
-        <div class="pill-row">
-          <span class="pill">Parent company</span>
-          <span class="pill">Flagship product: Certifyd</span>
-          <span class="pill">Provider + sovereign pathways</span>
-        </div>
-        <a class="hero-shot" href="https://certifyd.me" target="_blank" rel="noopener" aria-label="View Certifyd product preview">
-          <img src="assets/certifyd-content.png" alt="Certifyd product preview" />
-        </a>
-      </aside>
-    </section>
-
-    <section id="structure">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Site Structure</h2>
-          <p>Two sites with distinct roles: company brand and product experience.</p>
-        </div>
-        <div class="grid-2">
-          <article class="card">
-            <h3>Beatify Group (Company Site)</h3>
-            <p>Tone: calm, credible, category-level. Purpose: explain company vision, products, and system thinking.</p>
-            <ol class="number-list">
-              <li>Home</li>
-              <li>What We Build</li>
-              <li>Products</li>
-              <li>System</li>
-              <li>About</li>
-              <li>Contact</li>
-            </ol>
-          </article>
-          <article class="card">
-            <h3>Certifyd (Product Site)</h3>
-            <p>Tone: direct and action-oriented. Purpose: show what users can do in minutes.</p>
-            <ol class="number-list">
-              <li>Hero and capabilities</li>
-              <li>How it works</li>
-              <li>Why it is different</li>
-              <li>Roles: creators / collaborators / nodes</li>
-              <li>Get started</li>
-            </ol>
-            <p class="muted-note">Certifyd should carry a subtle “Built by Beatify Group” signature.</p>
-          </article>
+        <p class="eyebrow">Software Company · Parent of Certifyd</p>
+        <h1>Creator infrastructure that feels simple and runs like software.</h1>
+        <p class="hero-sub">Beatify Group builds identity-first commerce systems for creators and collaborators. Certifyd is our flagship product for publishing, split-aware revenue, and payout execution.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://certifyd.me" target="_blank" rel="noopener">Explore Certifyd</a>
+          <a class="btn" href="#company">About Beatify Group</a>
         </div>
       </div>
     </section>
 
-    <section id="build">
-      <div class="shell">
-        <div class="section-head">
-          <h2>What We Build</h2>
-          <p>Software infrastructure for creator businesses, with explicit ownership and financial state models.</p>
-        </div>
-        <div class="grid-3">
-          <article class="card">
-            <h3>Identity systems</h3>
-            <p>Portable creator identity and trust signals tied to real publishing and commerce activity.</p>
-          </article>
-          <article class="card">
-            <h3>Publishing systems</h3>
-            <p>Content lifecycle tooling with attribution and role context built in from the start.</p>
-          </article>
-          <article class="card">
-            <h3>Commerce systems</h3>
-            <p>Payment, split, receipt, and payout flows that remain clear under collaboration and scale.</p>
-          </article>
-        </div>
+    <section id="company" class="wrap">
+      <h2>What We Build</h2>
+      <p class="lede">We build software systems that keep identity, attribution, and money states coherent from input to execution.</p>
+      <div class="grid g3">
+        <article class="card"><h3>Identity</h3><p>Portable creator identity and trust context attached to real publishing activity.</p></article>
+        <article class="card"><h3>Publishing</h3><p>Structured content workflows with contributor attribution and role-aware participation.</p></article>
+        <article class="card"><h3>Commerce</h3><p>Clear separation of sales, earnings, and payouts so financial surfaces stay defensible.</p></article>
       </div>
     </section>
 
-    <section id="products">
-      <div class="shell product">
-        <article class="card">
-          <div class="eyebrow">Flagship Product</div>
-          <h2 style="margin:.1rem 0 .7rem;">Certifyd</h2>
-          <p>
-            Certifyd is our sovereign creator commerce product. It combines identity, publishing, payments,
-            split-aware accounting, receipts, and payout execution into one coherent user experience.
-          </p>
-          <ol class="number-list">
-            <li>Identity-first content publishing</li>
-            <li>Split-aware monetization with collaborators</li>
-            <li>Automatic payout workflows and portable receipts</li>
-          </ol>
-          <div class="cta-row" style="margin-top:1rem;">
-            <a class="btn primary" href="https://certifyd.me" target="_blank" rel="noopener">Visit Certifyd</a>
-            <a class="btn" href="https://certifyd.me/#mission" target="_blank" rel="noopener">Read Product Mission</a>
-          </div>
-        </article>
-
-        <aside class="card">
-          <h3>Why it matters</h3>
-          <p>
-            Most creator tools mix sales, earnings, and payouts into a single unclear number.
-            We design products that keep these truths separate, so users can trust what they see.
-          </p>
-          <div class="pill-row" style="margin-top:.9rem;">
-            <span class="pill">Sales truth</span>
-            <span class="pill">Earnings truth</span>
-            <span class="pill">Payout execution truth</span>
-          </div>
-        </aside>
+    <section id="products" class="wrap">
+      <h2>Flagship Product: Certifyd</h2>
+      <p class="lede">Certifyd is how users experience the Beatify Group system: identity-first publishing, revenue collaboration, and payout clarity in one flow.</p>
+      <article class="product-hero">
+        <img src="assets/certifyd-content.png" alt="Certifyd product interface" />
+        <div class="copy">Certifyd is built for creators, collaborators, and node operators who need accurate attribution and accountable revenue operations.</div>
+      </article>
+      <div class="gallery">
+        <article class="shot"><img src="assets/certifyd-identity.png" alt="Certifyd identity and trust" /><div class="cap">Identity and trust context</div></article>
+        <article class="shot"><img src="assets/certifyd-content.png" alt="Certifyd publishing and attribution" /><div class="cap">Publishing and attribution</div></article>
+        <article class="shot"><img src="assets/certifyd-revenue.png" alt="Certifyd revenue and payouts" /><div class="cap">Revenue and payouts</div></article>
       </div>
     </section>
 
-    <section id="product-glimpse">
-      <div class="shell">
-        <div class="section-head">
-          <h2>Certifyd in Practice</h2>
-          <p>Representative product surfaces from identity, attribution, and revenue operations.</p>
-        </div>
-        <div class="gallery">
-          <article class="gallery-item">
-            <img src="assets/certifyd-identity.png" alt="Certifyd identity panel" />
-            <div class="cap">Identity and trust signals</div>
-          </article>
-          <article class="gallery-item">
-            <img src="assets/certifyd-content.png" alt="Certifyd publishing and attribution view" />
-            <div class="cap">Publishing and attribution context</div>
-          </article>
-          <article class="gallery-item">
-            <img src="assets/certifyd-revenue.png" alt="Certifyd revenue and accounting view" />
-            <div class="cap">Revenue and payout clarity</div>
-          </article>
-        </div>
+    <section id="system" class="wrap">
+      <h2>System Principle</h2>
+      <p class="lede">Truth should survive every handoff. Users should be able to trace what was paid, earned, and remitted without ambiguity.</p>
+      <div class="grid g2">
+        <article class="card"><h3>Provider-backed and sovereign-ready</h3><p>The same product model works across different operational postures.</p></article>
+        <article class="card"><h3>Consistent accounting language</h3><p>Sales, earnings, and payouts are distinct truths, not a blended metric.</p></article>
       </div>
+      <div class="statement" style="margin-top:1rem;">Beatify Group builds the system. Certifyd is how users experience it.</div>
     </section>
 
-    <section id="system">
-      <div class="shell">
-        <div class="section-head">
-          <h2>System & Infrastructure</h2>
-          <p>Simple principle: truth should survive handoffs between payment, accounting, and execution.</p>
-        </div>
-        <div class="grid-2">
-          <article class="card">
-            <h3>Operational model</h3>
-            <p>
-              Beatify Group systems support provider-backed or sovereign execution. The same product model
-              remains consistent across both pathways.
-            </p>
-          </article>
-          <article class="card">
-            <h3>Trust model</h3>
-            <p>
-              Users should be able to trace what was paid, what was earned, what was remitted, and what remains unresolved,
-              without ambiguity.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="shell card">
-        <h2 style="margin:.1rem 0 .65rem;">About Beatify Group</h2>
-        <p>
-          Beatify Group is a software company focused on creator infrastructure. We build products that prioritize
-          system integrity, financial clarity, and long-term operator trust.
-        </p>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="shell card">
-        <h2 style="margin:.1rem 0 .65rem;">Contact</h2>
-        <p>Partnerships, enterprise conversations, and product collaboration.</p>
-        <div class="cta-row" style="margin-top:.9rem;">
-          <a class="btn primary" href="mailto:hello@beatifygroup.com">hello@beatifygroup.com</a>
-        </div>
+    <section id="contact" class="wrap">
+      <div class="card">
+        <h2>Contact</h2>
+        <p class="lede">Partnerships, enterprise conversations, and product collaboration.</p>
+        <a class="btn primary" href="mailto:hello@beatifygroup.com">hello@beatifygroup.com</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="shell" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+    <div class="wrap" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
       <div>© <span id="yr"></span> Beatify Group. All rights reserved.</div>
       <div>Parent company of Certifyd.</div>
     </div>
   </footer>
 
-
-  <script>
-    document.getElementById('yr').textContent = String(new Date().getFullYear());
-    (function(){
-      const targets=[...document.querySelectorAll('section .card, section .gallery-item, section .hero-card, section .hero > div')];
-      targets.forEach((el,i)=>{
-        el.classList.add('reveal');
-        el.style.transitionDelay = (Math.min(i%6,5)*45)+'ms';
-      });
-      if(!('IntersectionObserver' in window)){
-        targets.forEach(el=>el.classList.add('in'));
-        return;
-      }
-      const io=new IntersectionObserver((entries)=>{
-        entries.forEach((e)=>{
-          if(e.isIntersecting){
-            e.target.classList.add('in');
-            io.unobserve(e.target);
-          }
-        });
-      },{threshold:0.12, rootMargin:'0px 0px -8% 0px'});
-      targets.forEach(el=>io.observe(el));
-    })();
-  </script>
+  <script>document.getElementById('yr').textContent = String(new Date().getFullYear());</script>
 </body>
 </html>
