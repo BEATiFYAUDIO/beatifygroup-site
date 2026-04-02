@@ -304,13 +304,36 @@
 
     @media (max-width: 780px) {
       .wrap { width: min(var(--max), calc(100% - 1.12rem)); }
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .55rem;
+        padding: .55rem 0 .65rem;
+      }
+      .brand { justify-content: flex-start; }
+      nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: .38rem;
+        padding-bottom: .1rem;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      nav::-webkit-scrollbar { display: none; }
+      nav a {
+        white-space: nowrap;
+        border: 1px solid rgba(255, 255, 255, .16);
+        background: rgba(255, 255, 255, .04);
+        border-radius: 999px;
+        padding: .38rem .64rem;
+      }
       .hero { min-height: 72vh; padding: 4.2rem 0 3rem; }
       h1 { max-width: none; font-size: clamp(2rem, 10.2vw, 3.1rem); }
       .hero-actions { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
       .g3, .g2, .shots { grid-template-columns: 1fr; }
       section { padding: 2.5rem 0; }
-      nav a { padding: .42rem .58rem; font-size: .84rem; }
+      nav a { font-size: .84rem; }
       .brand span { font-size: .9rem; }
     }
   </style>
