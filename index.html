@@ -606,6 +606,26 @@
 
   <script>
     document.getElementById('year').textContent = String(new Date().getFullYear());
+
+    (function () {
+      const menu = document.querySelector('.nav-mobile');
+      if (!menu) return;
+
+      menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.open = false;
+        });
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!menu.open) return;
+        if (!menu.contains(event.target)) menu.open = false;
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') menu.open = false;
+      });
+    })();
   </script>
 </body>
 </html>
