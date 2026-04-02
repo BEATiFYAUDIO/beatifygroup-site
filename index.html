@@ -22,6 +22,9 @@
       --shadow: 0 26px 90px rgba(0, 0, 0, 0.44);
       --max: 1220px;
       --radius: 18px;
+      --tone-blue: #4f8cff;
+      --tone-indigo: #4b2d83;
+      --tone-pink: #ff4d8d;
     }
 
     * { box-sizing: border-box; }
@@ -45,11 +48,35 @@
       z-index: -2;
       pointer-events: none;
       background:
-        radial-gradient(1000px 520px at 96% -12%, rgba(252, 109, 160, 0.24), transparent 58%),
-        radial-gradient(1200px 740px at -10% 12%, rgba(47, 84, 188, 0.34), transparent 64%),
-        linear-gradient(170deg, rgba(24, 31, 90, 0.82), rgba(67, 43, 103, 0.78)),
-        url("assets/network-bg.png") center/cover no-repeat fixed;
-      filter: saturate(1.16);
+        radial-gradient(1400px 900px at -12% 42%, rgba(11, 19, 56, 0.58), transparent 62%),
+        radial-gradient(900px 520px at 86% 8%, rgba(255, 77, 141, 0.16), transparent 64%),
+        radial-gradient(1100px 640px at 92% 70%, rgba(79, 140, 255, 0.24), transparent 66%),
+        linear-gradient(160deg, #070b1a 0%, #0a1230 44%, #1d1a3f 100%);
+      filter: saturate(1.12) contrast(1.03);
+      overflow: hidden;
+    }
+
+    .bg::before,
+    .bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: url("assets/network-bg.png") center/cover no-repeat fixed;
+      transform: scale(1.03);
+    }
+
+    .bg::before {
+      opacity: .34;
+      filter: saturate(1.35) brightness(.78) contrast(1.12);
+      mix-blend-mode: screen;
+    }
+
+    .bg::after {
+      opacity: .22;
+      filter: blur(12px) saturate(1.5) brightness(.86);
+      transform: scale(1.08);
+      mix-blend-mode: lighten;
     }
 
     .grain {
@@ -57,9 +84,11 @@
       inset: 0;
       z-index: -1;
       pointer-events: none;
-      opacity: .08;
-      background-image: radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0);
-      background-size: 3px 3px;
+      opacity: .1;
+      background-image:
+        radial-gradient(circle at 1px 1px, rgba(170, 206, 255, 0.22) 1px, transparent 0),
+        radial-gradient(circle at 2px 2px, rgba(255, 77, 141, 0.14) 1px, transparent 0);
+      background-size: 4px 4px, 7px 7px;
     }
 
     header {
