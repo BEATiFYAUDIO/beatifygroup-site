@@ -153,6 +153,30 @@
       flex-wrap: wrap;
       margin-top: 1.6rem;
     }
+    .link-icons {
+      display: flex;
+      gap: .55rem;
+      flex-wrap: wrap;
+      margin-top: .95rem;
+    }
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(16,24,42,.6);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #d8e5ff;
+      transition: transform .16s ease, border-color .16s ease, color .16s ease;
+    }
+    .icon-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(110,231,112,.45);
+      color: #f4fbff;
+    }
+    .icon-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
     .btn {
       display: inline-flex;
@@ -263,6 +287,50 @@
       grid-template-columns: 1fr 1fr;
       gap: .9rem;
     }
+    .tab-shell {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(18,27,47,.8), rgba(12,19,34,.86));
+      padding: .9rem;
+    }
+    .tab-row {
+      display: flex;
+      gap: .55rem;
+      flex-wrap: wrap;
+      margin-bottom: .75rem;
+    }
+    .tab-btn {
+      border: 1px solid rgba(179, 204, 255, 0.22);
+      border-radius: 999px;
+      padding: .45rem .72rem;
+      background: rgba(13,21,38,.6);
+      color: #d2dff8;
+      font-size: .88rem;
+      cursor: pointer;
+    }
+    .tab-btn[aria-selected="true"] {
+      border-color: rgba(110,231,112,.55);
+      color: #f2fff3;
+      background: linear-gradient(140deg, rgba(110,231,112,.18), rgba(79,183,255,.18));
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .tab-panel h3 { margin: .2rem 0 .4rem; }
+    .tab-panel p { margin: 0; color: var(--muted); }
+    .tab-mini-grid {
+      margin-top: .8rem;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: .6rem;
+    }
+    .tab-mini {
+      border: 1px solid rgba(179, 204, 255, 0.15);
+      border-radius: 10px;
+      padding: .6rem;
+      background: rgba(10, 17, 31, .52);
+      color: #d7e5ff;
+      font-size: .86rem;
+    }
 
     .quote {
       padding: 1.2rem;
@@ -300,6 +368,7 @@
       .product,
       .split { grid-template-columns: 1fr; }
       .grid-3 { grid-template-columns: 1fr 1fr; }
+      .tab-mini-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 700px) {
@@ -307,6 +376,7 @@
       .nav { align-items: flex-start; }
       .nav-links { font-size: .88rem; }
       .hero { padding-top: 4.2rem; }
+      .tab-mini-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -339,6 +409,20 @@
         <div class="cta-row">
           <a class="btn primary" href="https://certifyd.me" target="_blank" rel="noopener">Explore Certifyd</a>
           <a class="btn" href="#contact">Partner with us</a>
+        </div>
+        <div class="link-icons" aria-label="Beatify links">
+          <a class="icon-btn" href="https://github.com/BEATiFYAUDIO" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.09 3.3 9.4 7.87 10.92.58.11.79-.25.79-.56l-.01-2.15c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.04-.72.08-.71.08-.71 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.68 1.25 3.33.95.1-.74.4-1.25.72-1.54-2.56-.29-5.26-1.28-5.26-5.72 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.47.11-3.06 0 0 .97-.31 3.17 1.18a11.02 11.02 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.24 2.77.12 3.06.73.8 1.18 1.83 1.18 3.09 0 4.45-2.7 5.42-5.28 5.7.41.35.78 1.05.78 2.12l-.01 3.13c0 .31.21.68.8.56A11.53 11.53 0 0 0 23.5 12.02C23.5 5.66 18.35.5 12 .5Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://x.com/BeatifyAudio" target="_blank" rel="noopener" aria-label="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.78 7.75L23 22h-6.1l-4.77-6.24L6.7 22H3.6l7.25-8.28L1.5 2h6.25l4.3 5.67L18.9 2Zm-1.07 18h1.68L6.83 3.9H5.03L17.83 20Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.facebook.com/beatifyaudio/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 8.5V6.9c0-.76.25-1.28 1.39-1.28h1.49V3.02c-.26-.03-1.15-.1-2.2-.1-2.18 0-3.68 1.33-3.68 3.77v1.81H8v2.93h2.5V21h3V11.43h2.34l.35-2.93H13.5Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.instagram.com/beat.ify/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5A3.95 3.95 0 0 0 7.75 20.2h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5A3.95 3.95 0 0 0 16.25 3.8h-8.5Zm8.9 1.43a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 1.8A3.2 3.2 0 1 0 12 15.2 3.2 3.2 0 0 0 12 8.8Z"/></svg>
+          </a>
         </div>
       </div>
       <aside class="hero-card" aria-label="Beatify Group snapshot">
@@ -408,15 +492,59 @@
     </section>
 
     <section id="platform">
-      <div class="shell split">
-        <article class="quote">
-          <p>“Creators need software that makes ownership and revenue transparent, not software that hides the mechanics.”</p>
-          <span>Beatify Group product principle</span>
-        </article>
-        <article class="quote">
-          <p>“Certifyd is designed so identity, attribution, and money can be explained end-to-end without hand-waving.”</p>
-          <span>Beatify Group engineering principle</span>
-        </article>
+      <div class="shell">
+        <div class="section-head">
+          <h2>Platform Capabilities</h2>
+          <p>Interactive overview of the core modules behind Beatify Group software systems.</p>
+        </div>
+        <div class="tab-shell">
+          <div class="tab-row" role="tablist" aria-label="Platform modules">
+            <button class="tab-btn" role="tab" aria-selected="true" data-tab="identity">Identity</button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="publishing">Publishing</button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="commerce">Commerce</button>
+            <button class="tab-btn" role="tab" aria-selected="false" data-tab="accounting">Accounting</button>
+          </div>
+
+          <article class="tab-panel active" id="tab-identity">
+            <h3>Identity infrastructure</h3>
+            <p>Portable creator identity with verification signals and profile integrity across channels.</p>
+            <div class="tab-mini-grid">
+              <div class="tab-mini">Identity assertions</div>
+              <div class="tab-mini">Profile trust metadata</div>
+              <div class="tab-mini">Cross-domain proof surfaces</div>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-publishing">
+            <h3>Publishing stack</h3>
+            <p>Structured content lifecycle with attribution, rights context, and collaboration awareness.</p>
+            <div class="tab-mini-grid">
+              <div class="tab-mini">Work lifecycle controls</div>
+              <div class="tab-mini">Attribution context</div>
+              <div class="tab-mini">Collaboration workflows</div>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-commerce">
+            <h3>Commerce rails</h3>
+            <p>Invoice-first payment operations with clear separation between input, statement, and execution layers.</p>
+            <div class="tab-mini-grid">
+              <div class="tab-mini">Invoice & settlement context</div>
+              <div class="tab-mini">Provider or sovereign posture</div>
+              <div class="tab-mini">Payout execution evidence</div>
+            </div>
+          </article>
+
+          <article class="tab-panel" id="tab-accounting">
+            <h3>Accounting truth model</h3>
+            <p>Consistent gross/net language so creator financial surfaces can be audited and trusted.</p>
+            <div class="tab-mini-grid">
+              <div class="tab-mini">Sales vs earned separation</div>
+              <div class="tab-mini">Fees and net remittance clarity</div>
+              <div class="tab-mini">Payable backlog accuracy</div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -443,6 +571,23 @@
 
   <script>
     document.getElementById('yr').textContent = String(new Date().getFullYear());
+
+    (function () {
+      const buttons = Array.from(document.querySelectorAll('.tab-btn'));
+      const panels = Array.from(document.querySelectorAll('.tab-panel'));
+      function setTab(name) {
+        buttons.forEach((btn) => {
+          const active = btn.getAttribute('data-tab') === name;
+          btn.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        panels.forEach((panel) => {
+          panel.classList.toggle('active', panel.id === `tab-${name}`);
+        });
+      }
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => setTab(btn.getAttribute('data-tab')));
+      });
+    })();
   </script>
 </body>
 </html>
