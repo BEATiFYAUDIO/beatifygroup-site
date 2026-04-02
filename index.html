@@ -17,8 +17,8 @@
       --line: rgba(219, 224, 255, 0.2);
       --text: #f4f7ff;
       --muted: #d2d1ea;
-      --accent: #ef2ea8;
-      --accent-2: #ff6a86;
+      --accent: #c23d8d;
+      --accent-2: #8362d6;
       --shadow: 0 26px 90px rgba(0, 0, 0, 0.44);
       --max: 1220px;
       --radius: 18px;
@@ -49,10 +49,10 @@
       pointer-events: none;
       background:
         radial-gradient(1400px 900px at -12% 42%, rgba(11, 19, 56, 0.58), transparent 62%),
-        radial-gradient(900px 520px at 86% 8%, rgba(255, 77, 141, 0.16), transparent 64%),
-        radial-gradient(1100px 640px at 92% 70%, rgba(79, 140, 255, 0.24), transparent 66%),
+        radial-gradient(900px 520px at 86% 8%, rgba(255, 77, 141, 0.1), transparent 64%),
+        radial-gradient(1100px 640px at 92% 70%, rgba(79, 140, 255, 0.16), transparent 66%),
         linear-gradient(160deg, #070b1a 0%, #0a1230 44%, #1d1a3f 100%);
-      filter: saturate(1.12) contrast(1.03);
+      filter: saturate(0.9) contrast(1.02);
       overflow: hidden;
     }
 
@@ -67,14 +67,14 @@
     }
 
     .bg::before {
-      opacity: .34;
-      filter: saturate(1.35) brightness(.78) contrast(1.12);
+      opacity: .26;
+      filter: saturate(1.02) brightness(.72) contrast(1.08);
       mix-blend-mode: screen;
     }
 
     .bg::after {
-      opacity: .22;
-      filter: blur(12px) saturate(1.5) brightness(.86);
+      opacity: .13;
+      filter: blur(10px) saturate(1.04) brightness(.8);
       transform: scale(1.08);
       mix-blend-mode: lighten;
     }
@@ -286,8 +286,8 @@
     .btn.primary {
       border-color: transparent;
       color: #f6efff;
-      background: linear-gradient(130deg, #8b2ba7, var(--accent));
-      box-shadow: 0 10px 36px rgba(239, 46, 168, 0.34);
+      background: linear-gradient(130deg, #6e4fb8, var(--accent));
+      box-shadow: 0 8px 28px rgba(109, 87, 170, 0.32);
     }
 
     section { padding: 3.4rem 0; }
@@ -390,7 +390,7 @@
     .strip {
       border: 1px solid var(--line);
       border-radius: 18px;
-      background: linear-gradient(140deg, rgba(239, 46, 168, 0.16), rgba(82, 98, 202, 0.18));
+      background: linear-gradient(140deg, rgba(194, 61, 141, 0.12), rgba(82, 98, 202, 0.14));
       padding: .98rem 1.02rem;
       color: #ebf3ff;
     }
