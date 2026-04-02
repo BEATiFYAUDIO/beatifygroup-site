@@ -241,6 +241,37 @@
       align-items: center;
     }
 
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: clamp(1rem, 2.8vw, 2.2rem);
+      align-items: center;
+    }
+
+    .hero-proof {
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(7, 10, 18, 0.72);
+      box-shadow: 0 24px 70px rgba(0,0,0,.35);
+    }
+
+    .hero-proof img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .hero-proof-note {
+      margin: 0;
+      padding: .7rem .9rem .85rem;
+      font-size: .86rem;
+      color: #d4dbf4;
+      border-top: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+    }
+
     .eyebrow {
       margin: 0 0 1rem;
       font-size: .78rem;
@@ -448,6 +479,13 @@
         display: block;
         padding: .64rem 0 1.78rem;
       }
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: .9rem;
+      }
+      .hero-proof {
+        order: 2;
+      }
       .eyebrow { margin-bottom: .72rem; font-size: .72rem; }
       h1 {
         max-width: none;
@@ -514,15 +552,21 @@
 
   <main id="top">
     <section class="hero wrap">
-      <div>
-        <h1>The internet shouldn’t require permission to exist.</h1>
-        <p>People create out of passion. Value should follow that work directly. Today, platforms sit in the middle of both.</p>
-        <p>We’ve lived that. So we built differently.</p>
-        <p><strong>Beatify Group builds systems where what you create and what it earns stay connected—and stay with you.</strong></p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#build">Explore our work</a>
-          <a class="btn" href="#shift">Why this changes now</a>
+      <div class="hero-layout">
+        <div>
+          <h1>The internet shouldn’t require permission to exist.</h1>
+          <p>People create out of passion. Value should follow that work directly. Today, platforms sit in the middle of both.</p>
+          <p>We’ve lived that. So we built differently.</p>
+          <p><strong>Beatify Group builds systems where what you create and what it earns stay connected—and stay with you.</strong></p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#build">Explore our work</a>
+            <a class="btn" href="#shift">Why this changes now</a>
+          </div>
         </div>
+        <figure class="hero-proof" aria-label="Creator proof of work and value flow">
+          <img src="assets/hero-proof.png" alt="Creator working at a laptop with payment confirmation in view" loading="eager" decoding="async" />
+          <figcaption class="hero-proof-note">Built by people who ship real work and track real outcomes.</figcaption>
+        </figure>
       </div>
     </section>
 
