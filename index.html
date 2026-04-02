@@ -129,11 +129,18 @@
       display: grid;
       place-items: center;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.02);
+      opacity: .88;
+      transition: background .16s ease, border-color .16s ease, opacity .16s ease;
     }
 
     .nav-mobile summary::-webkit-details-marker { display: none; }
+    .nav-mobile summary:hover {
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.18);
+      opacity: 1;
+    }
 
     .burger {
       display: inline-block;
