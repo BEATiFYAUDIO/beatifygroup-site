@@ -267,78 +267,188 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16
 		<div class="elementor-element elementor-element-03e1663 e-flex e-con-boxed e-con e-parent" data-id="03e1663" data-element_type="container" data-e-type="container">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-1bdf414 elementor-widget elementor-widget-html" data-id="1bdf414" data-element_type="widget" data-e-type="widget" data-widget_type="html.default">
-				<div class="elementor-widget-container">
-					<style>
+					<div class="elementor-widget-container">
+						<style>
   #beatify-chatbot {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 92px;
+    right: 20px;
+    width: min(360px, calc(100vw - 24px));
+    height: 470px;
+    display: none;
     z-index: 9999;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.18);
+    background: #0b1020;
+    box-shadow: 0 8px 24px rgba(0,0,0,.45);
     overflow: hidden;
-    background-color: #fff;
   }
-
+  #beatify-chatbot.open { display: flex; flex-direction: column; }
   #chatbot-toggle {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: #FF5722;
-    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.25);
+    background: linear-gradient(135deg, #7ee85b, #3bb8ff);
+    color: #081016;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 18px rgba(0,0,0,.28);
+    font-size: 24px;
+    line-height: 1;
     cursor: pointer;
     z-index: 10000;
   }
-
+  #beatify-chat-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    color: #eef5ff;
+    font-weight: 700;
+  }
+  #beatify-chat-close {
+    border: 1px solid rgba(255,255,255,.2);
+    background: transparent;
+    color: #d9e6ff;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+  #beatify-chat-body {
+    flex: 1;
+    overflow: auto;
+    padding: 12px;
+    color: #e8efff;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .beatify-chat-msg {
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .beatify-chat-msg.user { border-color: rgba(88,166,255,.45); }
+  #beatify-chat-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 12px 12px;
+  }
+  .beatify-chat-chip {
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 999px;
+    background: rgba(255,255,255,.06);
+    color: #dce8ff;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  #beatify-chat-form {
+    display: flex;
+    gap: 8px;
+    padding: 0 12px 12px;
+  }
+  #beatify-chat-input {
+    flex: 1;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 10px;
+    background: rgba(8,12,24,.7);
+    color: #eef5ff;
+    padding: 9px 10px;
+  }
+  #beatify-chat-send {
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 10px;
+    padding: 9px 12px;
+    background: #1d7eff;
+    color: #fff;
+    cursor: pointer;
+  }
   @media (max-width: 768px) {
     #beatify-chatbot {
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 0;
-      display: none;
+      right: 8px;
+      bottom: 80px;
+      width: calc(100vw - 16px);
+      height: min(65vh, 500px);
     }
   }
 </style>
 
-<div id="chatbot-toggle" onclick="toggleChatbot()">
-  💬
-</div>
-
-<div id="beatify-chatbot" style="width:350px; height:500px;">
-  <iframe src="https://chat.beatifygroup.com/"
-    style="width:100%;height:100%;border:none;overflow:hidden;">
-  </iframe>
+<div id="chatbot-toggle" title="Open assistant">💬</div>
+<div id="beatify-chatbot" aria-label="Beatify assistant">
+  <div id="beatify-chat-head">
+    <span>Beatify Assistant</span>
+    <button id="beatify-chat-close" type="button" aria-label="Close">×</button>
+  </div>
+  <div id="beatify-chat-body">
+    <div class="beatify-chat-msg">Hi. Ask about Beatify Link, onboarding, pricing, or support.</div>
+  </div>
+  <div id="beatify-chat-quick">
+    <button class="beatify-chat-chip" type="button" data-q="What is Beatify Link?">What is Beatify Link?</button>
+    <button class="beatify-chat-chip" type="button" data-q="How do I get started?">How do I get started?</button>
+    <button class="beatify-chat-chip" type="button" data-q="How does pricing work?">How does pricing work?</button>
+    <button class="beatify-chat-chip" type="button" data-q="How do I contact support?">How do I contact support?</button>
+  </div>
+  <form id="beatify-chat-form">
+    <input id="beatify-chat-input" type="text" placeholder="Ask a question..." autocomplete="off">
+    <button id="beatify-chat-send" type="submit">Send</button>
+  </form>
 </div>
 
 <script>
-function toggleChatbot(){
-  var chat = document.getElementById('beatify-chatbot');
-  if(chat.style.display === 'block'){
-    chat.style.display = 'none';
-  } else {
-    chat.style.display = 'block';
-  }
-}
+(function () {
+  const toggle = document.getElementById('chatbot-toggle');
+  const panel = document.getElementById('beatify-chatbot');
+  const close = document.getElementById('beatify-chat-close');
+  const body = document.getElementById('beatify-chat-body');
+  const form = document.getElementById('beatify-chat-form');
+  const input = document.getElementById('beatify-chat-input');
+  const faqs = {
+    "what is beatify link?": "Beatify Link is your creator link-in-bio stack with ownership, identity, and monetization tools.",
+    "how do i get started?": "Start at the Start page, create your profile, then publish your first content card and link.",
+    "how does pricing work?": "Beatify products offer creator plans with different identity, storefront, and collaboration capabilities.",
+    "how do i contact support?": "Use the Contact Us page and submit your details. You can also use testimonials/FAQ pages for quick answers."
+  };
 
-// Auto-hide chatbot on mobile initially
-document.addEventListener('DOMContentLoaded', function() {
-  if(window.innerWidth <= 768){
-    document.getElementById('beatify-chatbot').style.display = 'none';
-  } else {
-    document.getElementById('chatbot-toggle').style.display = 'none';
+  function addMsg(text, kind) {
+    const el = document.createElement('div');
+    el.className = 'beatify-chat-msg' + (kind === 'user' ? ' user' : '');
+    el.textContent = text;
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
   }
-});
+
+  function reply(question) {
+    const key = String(question || '').trim().toLowerCase();
+    if (!key) return;
+    addMsg(question, 'user');
+    const answer = faqs[key] || "I can help with Beatify Link, onboarding, pricing, and support. Try one of the quick prompts.";
+    setTimeout(() => addMsg(answer, 'bot'), 150);
+  }
+
+  toggle.addEventListener('click', () => panel.classList.toggle('open'));
+  close.addEventListener('click', () => panel.classList.remove('open'));
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = input.value;
+    input.value = '';
+    reply(q);
+  });
+  panel.querySelectorAll('.beatify-chat-chip').forEach((chip) => {
+    chip.addEventListener('click', () => reply(chip.getAttribute('data-q')));
+  });
+})();
 </script>
-				</div>
+					</div>
 				</div>
 					</div>
 				</div>
