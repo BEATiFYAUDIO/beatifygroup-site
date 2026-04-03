@@ -79,7 +79,7 @@
     .bg::after {
       opacity: .06;
       filter: blur(8px) saturate(.86) brightness(.74);
-      transform: scale(1.08);
+      transform: scale(1.22);
       mix-blend-mode: lighten;
     }
 
@@ -243,7 +243,7 @@
 
     .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
       gap: clamp(1rem, 2.8vw, 2.2rem);
       align-items: center;
     }
@@ -259,8 +259,9 @@
     .hero-proof img {
       display: block;
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9;
       object-fit: cover;
+      object-position: 60% center;
       transform: scale(1.08);
       transform-origin: center;
     }
