@@ -433,6 +433,31 @@
       color: #ebf3ff;
     }
 
+
+    .work-proof {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(8, 13, 22, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .work-proof img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .work-proof figcaption {
+      padding: .55rem .72rem .62rem;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      color: #c9d5ea;
+      font-size: .84rem;
+    }
+
     footer {
       margin-top: 2.1rem;
       border-top: 1px solid rgba(255, 255, 255, .1);
@@ -531,6 +556,10 @@
       .g3, .g2, .shots { grid-template-columns: 1fr; }
       section { padding: 1.72rem 0; }
       .brand span { font-size: .9rem; }
+      .work-proof img {
+        aspect-ratio: 4 / 3;
+        object-position: 56% center;
+      }
     }
   </style>
 </head>
@@ -705,6 +734,10 @@
         <p class="lede">Certifyd is one expression of this model: Bitcoin and Lightning payments, receipt-based records, and splits and payouts tied to the work.</p>
       </div>
       <p class="strip">Built by creators. So what you make—and what it earns—stay together.</p>
+      <figure class="work-proof" aria-label="Lightning payment proof in context">
+        <img src="assets/work-payment-proof.png" alt="Mobile payment confirmation showing sats received over Lightning" loading="lazy" decoding="async" />
+        <figcaption>Execution proof matters: payment receipt states stay visible.</figcaption>
+      </figure>
       <div class="hero-actions" style="margin-top:1rem;">
         <a class="btn primary" href="https://certifyd.me" target="_blank" rel="noopener">Visit Certifyd</a>
       </div>
