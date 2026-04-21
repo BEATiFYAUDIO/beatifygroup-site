@@ -477,6 +477,30 @@
       font-size: .84rem;
     }
 
+    .profile-embed {
+      margin-top: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(8, 13, 22, 0.78);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-embed iframe {
+      display: block;
+      width: 100%;
+      height: clamp(580px, 70vh, 860px);
+      border: 0;
+      background: #050915;
+    }
+
+    .profile-embed figcaption {
+      padding: .55rem .72rem .62rem;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      color: #c9d5ea;
+      font-size: .84rem;
+    }
+
     footer {
       margin-top: 2.1rem;
       border-top: 1px solid rgba(255, 255, 255, .1);
@@ -578,6 +602,9 @@
       .work-proof img {
         aspect-ratio: 4 / 3;
         object-position: 56% center;
+      }
+      .profile-embed iframe {
+        height: min(72vh, 700px);
       }
     }
   </style>
@@ -756,6 +783,15 @@
       <figure class="work-proof" aria-label="Lightning payment proof in context">
         <img src="assets/work-payment-proof.png" alt="Mobile payment confirmation showing sats received over Lightning" loading="lazy" decoding="async" />
         <figcaption>Execution proof matters: payment receipt states stay visible.</figcaption>
+      </figure>
+      <figure class="profile-embed" aria-label="Live Certifyd profile for Beatify Group">
+        <iframe
+          src="https://certifyd.beatifygroup.com/u/beatify-group"
+          title="Beatify Group on Certifyd"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        <figcaption>Live profile and storefront powered by Certifyd.</figcaption>
       </figure>
       <div class="hero-actions" style="margin-top:1rem;">
         <a class="btn primary" href="https://certifyd.me" target="_blank" rel="noopener">Visit Certifyd</a>
